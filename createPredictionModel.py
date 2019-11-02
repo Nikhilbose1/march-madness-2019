@@ -11,6 +11,7 @@ Created on Tue Feb 26 07:43:46 2019
 # -------------------------
 import pandas as pd
 import numpy as np
+
 import matplotlib.pyplot as plt
 import pickle
 
@@ -72,6 +73,7 @@ y_pred = classifier_nb.predict(X_test)
 from sklearn.metrics import accuracy_score
 score_nb = accuracy_score(y_test, y_pred)
 
+#'''
 # 4 - neural network
 print("Training Neural Network model...")
 from keras.models import Sequential
@@ -100,7 +102,7 @@ y_pred = classifier_nn.predict(X_test)
 y_pred = np.where(y_pred > 0.5, 1, 0)
 from sklearn.metrics import accuracy_score
 score_nn = accuracy_score(y_test, y_pred)
-
+#'''
 
 # -------------------------
 # MODEL EVALUATION
