@@ -36,11 +36,11 @@ WTeamIndexes = []
 #LTeamMetrics = ['LScore', 'WScore', 'LFGM', 'LFGA', 'LFGM3', 'LFGA3', 'LFTM',
 #                'LFTA', 'LOR', 'LDR', 'LAst', 'LTO', 'LStl', 'LBlk', 'LPF']
 LTeamIndexes = []
-WTeamMetrics = ['WDR', 'WStl', 'WBlk', 'WPF']
-LTeamMetrics = ['LDR', 'LStl', 'LBlk', 'LPF']
+#WTeamMetrics = ['WDR', 'WStl', 'WBlk', 'WPF']
+#LTeamMetrics = ['LDR', 'LStl', 'LBlk', 'LPF']
 
-#WTeamMetrics = ['WScore', 'WFGM', 'WFGA', 'WFGM3', 'WFTM', 'WOR', 'WDR', 'WAst', 'WTO', 'WStl', 'WBlk', 'WPF']
-#LTeamMetrics = ['LScore', 'LFGM', 'LFGA', 'LFGM3', 'LFTM', 'LOR', 'LDR', 'LAst', 'LTO', 'LStl', 'LBlk', 'LPF']
+WTeamMetrics = ['WScore', 'WFGM', 'WFGA', 'WFGM3', 'WFTM', 'WOR', 'WDR', 'WAst', 'WTO', 'WStl', 'WBlk', 'WPF']
+LTeamMetrics = ['LScore', 'LFGM', 'LFGA', 'LFGM3', 'LFTM', 'LOR', 'LDR', 'LAst', 'LTO', 'LStl', 'LBlk', 'LPF']
 
 # store index of necessary data within dataset
 for i in range(0, len(WTeamMetrics)):

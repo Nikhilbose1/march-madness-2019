@@ -30,7 +30,7 @@ games = pd.concat(frames)
 # -----------------------------
 # DATASET SKELETON PREPARATION
 # -----------------------------
-cols = 12#20#23
+cols = 20#12#20#23
 rows = games.shape[0]
 dataset = np.zeros(shape = (rows, cols))
 dataset = dataset.astype(float)

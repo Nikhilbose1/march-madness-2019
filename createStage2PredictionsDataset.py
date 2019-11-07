@@ -27,7 +27,7 @@ rawTeamData = data.iloc[:, :].values
 # DATASET SKELETON PREPARATION
 # -----------------------------
 rows = matchups.shape[0]
-cols = 11#19#22
+cols = 19#11#19#22
 dataset = np.zeros(shape = (rows, cols))
 
 

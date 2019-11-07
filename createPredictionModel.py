@@ -105,6 +105,7 @@ from sklearn.metrics import accuracy_score
 score_nn = accuracy_score(y_test, y_pred)
 #'''
 #5 - xgBoost
+print("Training XGBoost model...")
 D_train = xgb.DMatrix(X_train, label=y_train)
 D_test = xgb.DMatrix(X_test, label=y_test)
 param = {
@@ -115,7 +116,7 @@ param = {
 steps = 500
 classifier_xgb = xgb.train(param, D_train, steps)
 preds = classifier_xgb.predict(D_test)
-print(preds)
+#print(preds)
 best_preds = np.asarray([np.argmax(line) for line in preds])
 score_xgb = accuracy_score(best_preds, y_pred)
 #'''
