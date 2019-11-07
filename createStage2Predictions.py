@@ -12,6 +12,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
+import xgboost as xgb
 
 
 # -------------------------------------
@@ -33,14 +34,21 @@ X = data.iloc[:, 4:].values
 
 # apply scalar to data
 X = sc.transform(X)
+y = np.zeros((X.shape[0], 1))
+D_test = xgb.DMatrix(X, label=y)
 
 
 # -------------------------
 # GENERATING PREDICTIONS
 # -------------------------
 # predict probabilities of team 1 winning each matchup
-predictions = classifier.predict_proba(X)
-predictions = predictions[:, 1]
+#predictions = classifier.predict_proba(X)
+predictions = classifier.predict(D_test)
+#print(predictions)
+#best_preds = np.asarray([np.argmax(line) for line in predictions])
+#print(best_preds)
+predictions = predictions[:, 1]  # change to 0 for neural networks, 1 for any other model
+#predictions = best_preds
 
 
 # -------------------------

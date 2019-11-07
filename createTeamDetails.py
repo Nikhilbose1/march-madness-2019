@@ -30,12 +30,17 @@ teams = teams.iloc[start:]
 seasonIndex = games.columns.get_loc('Season')
 WTeamIDIndex = games.columns.get_loc('WTeamID')
 LTeamIDIndex = games.columns.get_loc('LTeamID')
-WTeamMetrics = ['WScore', 'LScore', 'WFGM', 'WFGA', 'WFGM3', 'WFGA3', 'WFTM',
-                'WFTA', 'WOR', 'WDR', 'WAst', 'WTO', 'WStl', 'WBlk', 'WPF']
+#WTeamMetrics = ['WScore', 'LScore', 'WFGM', 'WFGA', 'WFGM3', 'WFGA3', 'WFTM',
+#                'WFTA', 'WOR', 'WDR', 'WAst', 'WTO', 'WStl', 'WBlk', 'WPF']
 WTeamIndexes = []
-LTeamMetrics = ['LScore', 'WScore', 'LFGM', 'LFGA', 'LFGM3', 'LFGA3', 'LFTM',
-                'LFTA', 'LOR', 'LDR', 'LAst', 'LTO', 'LStl', 'LBlk', 'LPF']
+#LTeamMetrics = ['LScore', 'WScore', 'LFGM', 'LFGA', 'LFGM3', 'LFGA3', 'LFTM',
+#                'LFTA', 'LOR', 'LDR', 'LAst', 'LTO', 'LStl', 'LBlk', 'LPF']
 LTeamIndexes = []
+WTeamMetrics = ['WDR', 'WStl', 'WBlk', 'WPF']
+LTeamMetrics = ['LDR', 'LStl', 'LBlk', 'LPF']
+
+#WTeamMetrics = ['WScore', 'WFGM', 'WFGA', 'WFGM3', 'WFTM', 'WOR', 'WDR', 'WAst', 'WTO', 'WStl', 'WBlk', 'WPF']
+#LTeamMetrics = ['LScore', 'LFGM', 'LFGA', 'LFGM3', 'LFTM', 'LOR', 'LDR', 'LAst', 'LTO', 'LStl', 'LBlk', 'LPF']
 
 # store index of necessary data within dataset
 for i in range(0, len(WTeamMetrics)):
@@ -71,7 +76,7 @@ rawData = rawData.astype(float)
 for i in range(0, rawData.shape[0]):
     
     # output to console
-    print("Game #: ", i)
+    #print("Game #: ", i)
     
     # get descriptive data of game
     thisWTeamID = rawData[i][WTeamIDIndex]

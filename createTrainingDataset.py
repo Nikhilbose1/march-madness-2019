@@ -30,7 +30,7 @@ games = pd.concat(frames)
 # -----------------------------
 # DATASET SKELETON PREPARATION
 # -----------------------------
-cols = 23
+cols = 12#20#23
 rows = games.shape[0]
 dataset = np.zeros(shape = (rows, cols))
 dataset = dataset.astype(float)
@@ -42,7 +42,7 @@ dataset = dataset.astype(float)
 for i in range(0, games.shape[0]):
     
     # output to console
-    print("Game #: ", i)
+    #print("Game #: ", i)
     
     # get descriptive data of game
     season = games.iloc[i]['Season']

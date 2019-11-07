@@ -11,6 +11,7 @@ Created on Tue Feb 26 07:43:46 2019
 # -------------------------
 import pandas as pd
 import numpy as np
+import xgboost as xgb
 
 import matplotlib.pyplot as plt
 import pickle
@@ -103,6 +104,22 @@ y_pred = np.where(y_pred > 0.5, 1, 0)
 from sklearn.metrics import accuracy_score
 score_nn = accuracy_score(y_test, y_pred)
 #'''
+#5 - xgBoost
+D_train = xgb.DMatrix(X_train, label=y_train)
+D_test = xgb.DMatrix(X_test, label=y_test)
+param = {
+    'eta': 0.3,
+    'max_depth': 5,
+    'objective': 'multi:softprob',
+    'num_class': 2}
+steps = 500
+classifier_xgb = xgb.train(param, D_train, steps)
+preds = classifier_xgb.predict(D_test)
+print(preds)
+best_preds = np.asarray([np.argmax(line) for line in preds])
+score_xgb = accuracy_score(best_preds, y_pred)
+#'''
+
 
 # -------------------------
 # MODEL EVALUATION
@@ -114,15 +131,16 @@ print("Logisitc Regression Accuracy: " + str(round(score_lr, 3)))
 print("Random Forest Accuracy: " + str(round(score_rf, 3)))
 print("Naive Bayes Accuracy: " + str(round(score_nb, 3)))
 print("Neural Network Accuracy: " + str(round(score_nn, 3)))
+print("XGboost Accuracy: " + str(round(score_xgb, 3)))
 
 
 # -------------------------
 # MODEL STORAGE
 # -------------------------
 # identify the model with the highest accuracy score
-classifiers = [classifier_lr, classifier_rf, classifier_nb, classifier_nn]
-scores = [score_lr, score_rf, score_nb, score_nn]
-x = scores.index(max(scores))
+classifiers = [classifier_lr, classifier_rf, classifier_nb, classifier_nn, classifier_xgb]
+scores = [score_lr, score_rf, score_nb, score_nn, score_xgb]
+x = 4#scores.index(max(scores))
 
 # store the model with the highest accuracy score to disk
 with open('predictor.pkl', 'wb') as fid:
@@ -134,3 +152,4 @@ print()
 print("Predictive Models creation complete.")
 print()
 print()
+
